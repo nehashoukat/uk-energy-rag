@@ -1,0 +1,5 @@
+google-genai==2.25.0
+python-dotenv==1.2.3
+pymupdf==1.28.2
+qdrant-client==1.19.1
+streamlit==1.64.0

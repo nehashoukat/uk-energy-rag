@@ -1,0 +1,18 @@
+# Environment and secrets
+.env
+
+# Python virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Generated RAG outputs
+outputs/
+
+# macOS files
+.DS_Store
+
+# Source PDFs
+data/
