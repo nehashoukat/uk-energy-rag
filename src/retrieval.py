@@ -2,7 +2,7 @@ from qdrant_client import QdrantClient
 
 from src.embeddings import generate_embedding
 
-# Connect to our local Qdrant database
+
 client = QdrantClient(path="./outputs/qdrant_db")
 
 COLLECTION_NAME = "neso_documents"
@@ -11,10 +11,10 @@ COLLECTION_NAME = "neso_documents"
 def search_documents(query, top_k=5):
     """Find the most relevant document chunks for a user query."""
 
-    # Convert the user's question into an embedding
+    
     query_vector = generate_embedding(query)
 
-    # Search Qdrant for the closest vectors
+    
     results = client.query_points(
         collection_name=COLLECTION_NAME,
         query=query_vector,

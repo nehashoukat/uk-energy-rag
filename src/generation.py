@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 from google import genai
 
 
-# Load API key from .env
 load_dotenv()
 
 client = genai.Client(

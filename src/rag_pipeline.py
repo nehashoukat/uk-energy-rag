@@ -5,10 +5,10 @@ from src.generation import generate_answer
 def answer_question(question, top_k=5):
     """Retrieve relevant documents and generate a grounded answer."""
 
-    # Step 1: Retrieve relevant chunks
+    
     results = search_documents(question, top_k=top_k)
 
-    # Step 2: Build context from retrieved chunks
+    
     context_parts = []
 
     for result in results:
@@ -24,7 +24,7 @@ def answer_question(question, top_k=5):
 
     context = "\n\n---\n\n".join(context_parts)
 
-    # Step 3: Generate an answer using the retrieved context
+    
     answer = generate_answer(question, context)
 
     return answer, results

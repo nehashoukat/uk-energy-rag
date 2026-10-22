@@ -4,13 +4,13 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import PointStruct
 
 
-# Connect to our local Qdrant database
+
 client = QdrantClient(path="./outputs/qdrant_db")
 
 COLLECTION_NAME = "neso_documents"
 
 
-# Load our saved embeddings
+
 with open(
     "./outputs/embedded_chunks.json",
     "r",
@@ -22,7 +22,7 @@ with open(
 print(f"Loaded {len(embedded_chunks)} embedded chunks.")
 
 
-# Convert each embedded chunk into a Qdrant point
+
 points = []
 
 for index, chunk in enumerate(embedded_chunks):
@@ -39,7 +39,7 @@ for index, chunk in enumerate(embedded_chunks):
     )
 
 
-# Insert the points into Qdrant
+
 client.upsert(
     collection_name=COLLECTION_NAME,
     points=points

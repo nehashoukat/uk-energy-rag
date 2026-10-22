@@ -11,12 +11,12 @@ OUTPUT_FILE = "./outputs/embedded_chunks.json"
 
 if __name__ == "__main__":
 
-    # Step 1: Ingest PDFs
+    
     raw_pages = ingest_pdfs_from_folder("./data")
 
     if raw_pages:
 
-        # Step 2: Chunk documents
+        
         processed_chunks = chunk_documents(
             raw_pages,
             chunk_size=500,
@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
         total_chunks = len(processed_chunks)
 
-        # Step 3: Check whether previous embeddings were saved
+        
         embedded_chunks = []
 
         if os.path.exists(OUTPUT_FILE):
@@ -37,7 +37,7 @@ if __name__ == "__main__":
                 f"{len(embedded_chunks)} / {total_chunks}"
             )
 
-        # Step 4: Determine what still needs embedding
+        
         completed = len(embedded_chunks)
 
         if completed >= total_chunks:
@@ -55,7 +55,7 @@ if __name__ == "__main__":
                 f"{len(remaining_texts)} chunks..."
             )
 
-            # Step 5: Generate remaining embeddings
+            
             for start, batch_embeddings in generate_embeddings(
                 remaining_texts
             ):
@@ -74,7 +74,7 @@ if __name__ == "__main__":
                         "embedding": embedding
                     })
 
-                # Save after every successful batch
+                
                 with open(
                     OUTPUT_FILE,
                     "w",
@@ -90,7 +90,7 @@ if __name__ == "__main__":
                     f"{total_chunks} embedded chunks."
                 )
 
-            # Step 6: Final confirmation
+            
             print("\nEmbedding pipeline complete!")
 
             print(
