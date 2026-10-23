@@ -1,6 +1,6 @@
 # NESO Energy Knowledge Assistant
 
-A retrieval-augmented generation (RAG) system for answering questions about the UK's electricity system using NESO (National Energy System Operator) documents.
+A retrieval augmented generation (RAG) system for answering questions about the UK's electricity system using NESO (National Energy System Operator) documents.
 
 The project combines document processing, semantic embeddings, vector search, and large language model generation to produce answers grounded in the underlying source documents, with document and page metadata for traceability.
 
@@ -8,11 +8,11 @@ The project also includes a Streamlit interface for interactive question answeri
 
 ## Overview
 
-Large energy-system reports contain substantial amounts of technical information that can be difficult to search efficiently.
+Large energy system reports contain substantial amounts of technical information that can be difficult to search efficiently.
 
-This project builds a domain-specific question-answering system that allows users to ask natural-language questions about NESO documents.
+This project builds a domain specific question-answering system that allows users to ask natural language questions about NESO documents.
 
-The system follows a retrieval-augmented generation architecture:
+The system follows a retrieval augmented generation architecture:
 
 ```text
 NESO PDF Documents
@@ -71,13 +71,13 @@ They are not included in the GitHub repository.
 
 ## Technical Stack
 
-* **Python** — application and data-processing logic
-* **PyMuPDF** — PDF text extraction
-* **Google Gemini** — text embeddings and answer generation
-* **Qdrant** — local vector database
-* **Streamlit** — interactive question-answering interface
-* **python-dotenv** — environment variable management
-* **JSON** — intermediate storage of generated embeddings
+* **Python** - application and data-processing logic
+* **PyMuPDF** - PDF text extraction
+* **Google Gemini** - text embeddings and answer generation
+* **Qdrant** - local vector database
+* **Streamlit** - interactive question-answering interface
+* **python-dotenv** - environment variable management
+* **JSON** - intermediate storage of generated embeddings
 
 ## RAG Pipeline
 
@@ -94,7 +94,7 @@ This allows retrieved information to be traced back to the original document.
 
 ### 2. Text Chunking
 
-Long page-level text is divided into smaller chunks.
+Long page level text is divided into smaller chunks.
 
 Current configuration:
 
@@ -292,9 +292,9 @@ The output includes the generated answer and the source documents/pages used for
 
 ## Evaluation
 
-A small retrieval evaluation set was created using six questions covering the three source documents, plus one out-of-scope question.
+A small retrieval evaluation set was created using six questions covering the three source documents, plus one out of scope question.
 
-The six in-scope questions were evaluated against their expected source documents.
+The six in scope questions were evaluated against their expected source documents.
 
 Evaluation result:
 
@@ -303,11 +303,11 @@ Expected-document retrieval: 6/6
 Out-of-scope question tested: Yes
 ```
 
-The six in-scope questions all returned the expected document as the top retrieved source during the evaluation run.
+The six in scope questions all returned the expected document as the top retrieved source during the evaluation run.
 
-The out-of-scope test demonstrated that semantic retrieval can still return moderately similar document chunks even when the question is unrelated to the knowledge base. This highlights the importance of evaluating retrieval relevance and adding stronger confidence or relevance controls in future versions.
+The out of scope test demonstrated that semantic retrieval can still return moderately similar document chunks even when the question is unrelated to the knowledge base. This highlights the importance of evaluating retrieval relevance and adding stronger confidence or relevance controls in future versions.
 
-The evaluation measures document-level retrieval relevance. It does not claim that generated answers are automatically factually correct.
+The evaluation measures document level retrieval relevance. It does not claim that generated answers are automatically factually correct.
 
 Run the evaluation with:
 
@@ -321,7 +321,7 @@ Example question:
 
 > What is the NESO advice process and how does NESO provide advice to government?
 
-The system retrieves relevant sections from the NESO advice-process document and uses those retrieved passages as context for answer generation.
+The system retrieves relevant sections from the NESO advice process document and uses those retrieved passages as context for answer generation.
 
 The Streamlit interface displays the generated answer together with the retrieved source documents, pages, similarity scores, and retrieved text.
 
@@ -372,9 +372,4 @@ This project demonstrates practical experience with:
 * Retrieval evaluation
 * Environment-variable and API-key management
 
-## Author
 
-**Neha Shoukat**
-
-MSc Data Science with Professional Placement Year
-University of Surrey
